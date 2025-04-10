@@ -1,24 +1,29 @@
-name: Deploy E-commerce Site to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - master
+      - master # or main, depending on your branch name
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
-      - name: Upload website files
+      - name: Upload site
         uses: actions/upload-pages-artifact@v2
         with:
-          path: "." # root directory
+          path: "." # Your root folder containing index.html
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
