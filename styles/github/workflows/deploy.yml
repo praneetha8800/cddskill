@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy E-commerce Site to GitHub Pages
 
 on:
   push:
@@ -9,16 +9,16 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v3
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
-      - name: Upload site
+      - name: Upload website files
         uses: actions/upload-pages-artifact@v2
         with:
-          path: "." # or change if your index.html is inside /public etc.
+          path: "." # root directory
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
